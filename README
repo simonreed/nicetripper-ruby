@@ -1,0 +1,25 @@
+Hi, this is the wrapper class for the nicetripper API.
+
+For full API documentation please visit : http://www.nicetripper.com/apps
+To get your access and token, visit and login to : http://www.nicetripper.com/apps/new
+
+USAGE:
+
+You must change the ACCESS and TOKEN constants in tripper.rb before use.
+
+irb -rrubygems
+=> require 'nicetripper'
+=> nicetripper
+=> #<Nicetripper::Client:0x1013c00f8 @auth={:token=>"Insert Token to play :-)", :access=>"Access Code"}>
+
+=> nicetripper.search :high => 70, :month=>"jan"
+# A list of search results with weather, city and country data. Paginated by 20.
+
+=> nicetripper.places
+# A list of places paginated by 20
+
+=> nicetripper.place("london").country.name
+# "United Kingdom"
+
+=> nicetripper.place("london").deals.first['deal_url']
+# The link to check deals on affiliate sites
